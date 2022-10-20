@@ -1,3 +1,5 @@
 # BreakoutX
 
-A breakouot game made in LibGDX.
+A breakout game made in LibGDX.
+
+[Demo](https://youtu.be/n8LvIGVpc28)
