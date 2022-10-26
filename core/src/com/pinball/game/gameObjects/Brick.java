@@ -2,6 +2,7 @@ package com.pinball.game.gameObjects;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.pinball.game.utilities.BoxCollider;
 
 public class Brick {
@@ -24,8 +25,9 @@ public class Brick {
         boxCollider = new BoxCollider(this.X, this.Y, this.WIDTH, this.HEIGHT);
     }
 
-    public void render(SpriteBatch spriteBatch){
+    public void render(SpriteBatch spriteBatch, ShapeRenderer shapeRenderer){
         spriteBatch.draw(brickTexture, this.X, this.Y, this.WIDTH, this.HEIGHT);
+        shapeRenderer.rect(boxCollider.getX(), boxCollider.getY(), boxCollider.getWidth(), boxCollider.getHeight());
     }
 
     public BoxCollider getBoxCollider(){

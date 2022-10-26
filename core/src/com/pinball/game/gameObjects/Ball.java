@@ -3,11 +3,13 @@ package com.pinball.game.gameObjects;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.pinball.game.utilities.BoxCollider;
 
 public class Ball {
     public static int BALL_SPEED = 100;
     Texture ballTexture;
+    ShapeRenderer shapeRenderer = new ShapeRenderer();
 
     float ballX;
     float ballY;
@@ -49,8 +51,10 @@ public class Ball {
         ballCollider.move(this.ballX, this.ballY);
     }
 
-    public void render(SpriteBatch spriteBatch){
+    public void render(SpriteBatch spriteBatch, ShapeRenderer shapeRenderer){
         spriteBatch.draw(ballTexture, ballX, ballY, BALL_WIDTH, BALL_HEIGHT);
+        shapeRenderer.rect(ballCollider.getX(), ballCollider.getY(), ballCollider.getWidth(), ballCollider.getHeight());
+
     }
 
     public BoxCollider getBallCollider(){

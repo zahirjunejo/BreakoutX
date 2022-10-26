@@ -5,6 +5,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.pinball.game.PinballGame;
 import com.pinball.game.gameObjects.*;
 import com.pinball.game.utilities.BoxCollider;
@@ -148,22 +149,25 @@ public class MainGameScreen implements Screen {
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		pinballGame.batch.begin();
-		pinballGame.batch.draw(paddle, paddleX, paddleY, PADDLE_WIDTH, PADDLE_HEIGHT);
+		pinballGame.shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
+
+		pinballGame.batch.draw(new Texture("paddle.png"), paddleX, paddleY, PADDLE_WIDTH, PADDLE_HEIGHT);
+
 
 		for (Ball ball:balls ) {
-            ball.render(pinballGame.batch);
+            ball.render(pinballGame.batch, pinballGame.shapeRenderer);
         }
 
-		leftWall.render(pinballGame.batch);
-		rightWall.render(pinballGame.batch);
-		topWall.render(pinballGame.batch);
+		leftWall.render(pinballGame.batch, pinballGame.shapeRenderer);
+		rightWall.render(pinballGame.batch, pinballGame.shapeRenderer);
+		topWall.render(pinballGame.batch, pinballGame.shapeRenderer);
 
 		for (Brick brick: bricks) {
-            brick.render(pinballGame.batch);
+            brick.render(pinballGame.batch, pinballGame.shapeRenderer);
         }
 
 		pinballGame.batch.end();
-
+        pinballGame.shapeRenderer.end();
     }
 
     @Override
