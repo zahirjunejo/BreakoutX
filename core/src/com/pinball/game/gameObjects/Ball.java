@@ -51,9 +51,12 @@ public class Ball {
         ballCollider.move(this.ballX, this.ballY);
     }
 
-    public void render(SpriteBatch spriteBatch, ShapeRenderer shapeRenderer){
+    public void render(SpriteBatch spriteBatch, ShapeRenderer shapeRenderer, boolean isDebugMode){
         spriteBatch.draw(ballTexture, ballX, ballY, BALL_WIDTH, BALL_HEIGHT);
-        shapeRenderer.rect(ballCollider.getX(), ballCollider.getY(), ballCollider.getWidth(), ballCollider.getHeight());
+
+        if(isDebugMode){
+            shapeRenderer.rect(ballCollider.getX(), ballCollider.getY(), ballCollider.getWidth(), ballCollider.getHeight());
+        }
 
     }
 

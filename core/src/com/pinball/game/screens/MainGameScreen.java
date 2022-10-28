@@ -155,15 +155,15 @@ public class MainGameScreen implements Screen {
 
 
 		for (Ball ball:balls ) {
-            ball.render(pinballGame.batch, pinballGame.shapeRenderer);
+            ball.render(pinballGame.batch, pinballGame.shapeRenderer, false);
         }
 
-		leftWall.render(pinballGame.batch, pinballGame.shapeRenderer);
-		rightWall.render(pinballGame.batch, pinballGame.shapeRenderer);
-		topWall.render(pinballGame.batch, pinballGame.shapeRenderer);
+		leftWall.render(pinballGame.batch, pinballGame.shapeRenderer, false);
+		rightWall.render(pinballGame.batch, pinballGame.shapeRenderer, false);
+		topWall.render(pinballGame.batch, pinballGame.shapeRenderer, false);
 
 		for (Brick brick: bricks) {
-            brick.render(pinballGame.batch, pinballGame.shapeRenderer);
+            brick.render(pinballGame.batch, pinballGame.shapeRenderer, false);
         }
 
 		pinballGame.batch.end();

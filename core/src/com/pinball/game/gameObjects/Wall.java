@@ -25,9 +25,14 @@ public class Wall {
         boxCollider = new BoxCollider(this.X, this.Y, this.WIDTH, this.HEIGHT);
     }
 
-    public void render(SpriteBatch spriteBatch, ShapeRenderer shapeRenderer){
+    public void render(SpriteBatch spriteBatch, ShapeRenderer shapeRenderer, boolean isDebugMode){
+
         spriteBatch.draw(wallTexture, this.X, this.Y, this.WIDTH, this.HEIGHT);
-        shapeRenderer.rect(boxCollider.getX(), boxCollider.getY(), boxCollider.getWidth(), boxCollider.getHeight());
+
+        if(isDebugMode){
+            shapeRenderer.rect(boxCollider.getX(), boxCollider.getY(), boxCollider.getWidth(), boxCollider.getHeight());
+        }
+
     }
 
     public BoxCollider getBoxCollider(){
